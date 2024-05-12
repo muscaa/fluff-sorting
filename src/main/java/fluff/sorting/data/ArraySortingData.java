@@ -24,4 +24,8 @@ public class ArraySortingData<V> implements ISortingData<V> {
 	public int size() {
 		return array.length;
 	}
+	
+	public static <V> ISortingData<V> temp(int size) {
+		return new ArraySortingData<>((V[]) new Object[size]);
+	}
 }

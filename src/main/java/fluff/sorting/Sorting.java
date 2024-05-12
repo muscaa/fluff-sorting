@@ -3,6 +3,7 @@ package fluff.sorting;
 import java.util.HashMap;
 import java.util.Map;
 
+import fluff.sorting.algorithms.MergeSortAlgorithm;
 import fluff.sorting.algorithms.QuickSortAlgorithm;
 
 public class Sorting {
@@ -10,6 +11,7 @@ public class Sorting {
 	private static final Map<String, SortingFunctions> REG = new HashMap<>();
 	
 	public static final SortingFunctions QUICKSORT = register("quicksort", new QuickSortAlgorithm());
+	public static final SortingFunctions MERGESORT = register("mergesort", new MergeSortAlgorithm());
 	
 	public static SortingFunctions get(String name) {
 		return REG.get(name);

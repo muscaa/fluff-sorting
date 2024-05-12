@@ -8,19 +8,19 @@ public class QuickSortAlgorithm implements ISortingAlgorithm {
 	
 	@Override
 	public <V> void sort(ISortingData<V> data, BooleanFunc2<V, V> comparator) {
-		sort(data, 0, data.size() - 1, comparator);
+		sort(data, comparator, 0, data.size() - 1);
 	}
 	
-	private static <V> void sort(ISortingData<V> data, int begin, int end, BooleanFunc2<V, V> comparator) {
+	private <V> void sort(ISortingData<V> data, BooleanFunc2<V, V> comparator, int begin, int end) {
 		if (begin < end) {
-			int partitionIndex = partition(data, begin, end, comparator);
+			int partitionIndex = partition(data, comparator, begin, end);
 			
-			sort(data, begin, partitionIndex - 1, comparator);
-			sort(data, partitionIndex + 1, end, comparator);
+			sort(data, comparator, begin, partitionIndex - 1);
+			sort(data, comparator, partitionIndex + 1, end);
 		}
 	}
 	
-	private static <V> int partition(ISortingData<V> data, int begin, int end, BooleanFunc2<V, V> comparator) {
+	private <V> int partition(ISortingData<V> data, BooleanFunc2<V, V> comparator, int begin, int end) {
 		V pivot = data.get(end);
 		int i = (begin - 1);
 		
